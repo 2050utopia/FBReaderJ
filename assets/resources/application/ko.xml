@@ -57,6 +57,7 @@
 			<node name="summary" value="전체적인 파일 시스템"/>
 		</node>
 		<node name="fileTreeCard" value="메모리 카드">
+			<node name="withIndex" value="Memory card No %s" toBeTranslated="true"/>
 			<node name="summary" value="메모리 카드, 외부 저장소 혹은 내부 저장소에 있는 파일들"/>
 		</node>
 		<node name="fileTreeLibrary" value="FBReader 라이브러리">
@@ -272,7 +273,7 @@
 		<node name="close" value="FBReader 닫기"/>
 	</node>
 	<node name="style" value="%s 형식"/>
-	<node name="editStyle">
+	<node name="editStyle" value="Edit style" toBeTranslated="true">
 		<node name="name" value="형식 이름"/>
 		<node name="invisible" value="보이지 않음">
 			<node name="summaryOn" value="책갈피 강조하지 않음"/>
@@ -281,21 +282,22 @@
 		<node name="bgColor" value="배경 색상"/>
 	</node>
 	<node name="selection" value="선택">
-		<node name="copyToClipboard" value="클립보드로 복사"/>
-		<node name="openInDictionary" value="사전으로 열기"/>
 		<node name="quoteFrom" value="%s 에서 인용"/>
 		<node name="textInBuffer" value="클립보드로 복사됨:&#10;%s"/>
-		<node name="clearSelection" value="지우기"/>
 	</node>
 	<node name="sharing">
 		<node name="sharedFrom" value="&lt;a href=&quot;https://fbreader.org/&quot;&gt;FBReader&lt;/a&gt; 로부터 공유됨"/>
 	</node>
 	<node name="menu">
+		<node name="installPremium" value="Upgrade to Premium" toBeTranslated="true"/>
+		<node name="openPremium" value="Open FBReader Premium" toBeTranslated="true"/>
+		<node name="premium" value="FBReader Premium dialog" toBeTranslated="true"/>
+		<node name="whatsnew" value="What's new" toBeTranslated="true"/>
 		<node name="openStartScreen" value="시작 화면"/>
 		<node name="preferences" value="설정"/>
 		<node name="bookInfo" value="책 정보"/>
 		<node name="library" value="라이브러리"/>
-		<node name="toc" value="TOC"/>
+		<node name="toc" value="Table of contents" toBeTranslated="true"/>
 		<node name="day" value="주간"/>
 		<node name="night" value="야간"/>
 		<node name="dayNight" value="Day/Night" toBeTranslated="true"/>
@@ -340,7 +342,7 @@
 		<node name="tags" value="태그"/>
 		<node name="series" value="시리즈"/>
 	</node>
-	<node name="Preferences">
+	<node name="Preferences" value="FBReader settings" toBeTranslated="true">
 		<node name="sync" value="동기화">
 			<node name="summary" value="책 네트워크 설정"/>
 			<node name="site" value="동기화에 대해 더 알아보기">
@@ -361,6 +363,7 @@
 			<node name="downloadCurrentBook" value="현재 책을 서버로부터 다운로드"/>
 			<node name="positions" value="독서 위치 동기화"/>
 			<node name="bookmarks" value="책갈피 동기화"/>
+			<node name="customShelves" value="Synchronise custom shelves" toBeTranslated="true"/>
 			<node name="metainfo" value="메타 정보 동기화 (제목, 태그 및 기타)"/>
 			<node name="changeCurrentBook" value="현재 책 변경">
 				<node name="summaryOn" value="모든 기기에서 같은 책 열기"/>
@@ -434,6 +437,10 @@
 			<node name="dontTurnScreenOffDuringCharging" value="충전중에 화면 꺼짐 방지">
 				<node name="summaryOn" value="기기가 충전중일때 화면 꺼짐을 방지합니다"/>
 				<node name="summaryOff" value="기기가 충전중이더라도 화면을 끄게 됩니다"/>
+			</node>
+			<node name="enableBookMenuSwipeGesture" value="Enable swipe gesture for the book menu" toBeTranslated="true">
+				<node name="summaryOn" value="Swipe in from the left edge to open book menu" toBeTranslated="true"/>
+				<node name="summaryOff" value="Use three-line (“hamburger”) button to open book menu" toBeTranslated="true"/>
 			</node>
 		</node>
 		<node name="text" value="텍스트">
@@ -709,9 +716,12 @@
 				<node name="summaryOn" value="꼬리말 바에 TOC 표시 보이기"/>
 				<node name="summaryOff" value="꼬리말 바에 TOC 표시 보이지 않음"/>
 			</node>
-			<node name="showProgress" value="페이지 번호 표시">
-				<node name="summaryOn" value="꼬리말 바에 페이지 번호를 표시합니다"/>
-				<node name="summaryOff" value="꼬리말 바에 페이지 번호를 표시하지 않습니다"/>
+			<node name="tocMarksMaxNumber" value="Maximum number of TOC marks to display" toBeTranslated="true"/>
+			<node name="showProgress" value="Show reading progress" toBeTranslated="true">
+				<node name="dontDisplay" value="Do not show" toBeTranslated="true"/>
+				<node name="asPages" value="As page number" toBeTranslated="true"/>
+				<node name="asPercentage" value="As percentage" toBeTranslated="true"/>
+				<node name="asPagesAndPercentage" value="As page number and percentage" toBeTranslated="true"/>
 			</node>
 			<node name="showBattery" value="배터리 잔량 표시">
 				<node name="summaryOn" value="꼬리말 바에 배터리 잔량을 표시합니다"/>
@@ -816,9 +826,24 @@
 			</node>
 		</node>
 		<node name="menu" value="Menu" toBeTranslated="true">
-			<node name="summary" value="Main menu items" toBeTranslated="true"/>
-			<node name="enabled" value="사용"/>
-			<node name="disabled" value="사용 안함"/>
+			<node name="summary" value="Configure main screen menu" toBeTranslated="true"/>
+			<node name="backgroundCover" value="Use book cover as background" toBeTranslated="true">
+				<node name="summaryOn" value="Show cover in the book menu" toBeTranslated="true"/>
+				<node name="summaryOff" value="Keep background clear" toBeTranslated="true"/>
+			</node>
+			<node name="bookMenuStatusItem" value="Status item" toBeTranslated="true">
+				<node name="summaryOn" value="Show status item in the book menu" toBeTranslated="true"/>
+				<node name="summaryOff" value="Hide status item" toBeTranslated="true"/>
+			</node>
+			<node name="items" value="Menu items" toBeTranslated="true">
+				<node name="summary" value="Change items order" toBeTranslated="true"/>
+				<node name="bookMenuUpperSection" value="Book menu (upper section)" toBeTranslated="true"/>
+				<node name="bookMenuLowerSection" value="Book menu (lower section)" toBeTranslated="true"/>
+				<node name="toolbarOrMainMenu" value="Toolbar or main menu" toBeTranslated="true"/>
+				<node name="mainMenu" value="Main menu" toBeTranslated="true"/>
+				<node name="enabled" value="Enabled" toBeTranslated="true"/>
+				<node name="disabled" value="Disabled" toBeTranslated="true"/>
+			</node>
 		</node>
 		<node name="cancelMenu" value="취소 메뉴">
 			<node name="summary" value="뒤로가기 버튼 동작 목록"/>
@@ -912,7 +937,10 @@
 			<node name="removeFromFavorites" value="즐겨찾기에서 제거"/>
 			<node name="markAsRead" value="읽음으로 표시"/>
 			<node name="markAsUnread" value="읽지 않음으로 표시"/>
+			<node name="plugin" value="Plugin" toBeTranslated="true"/>
+			<node name="premium" value="Premium" toBeTranslated="true"/>
 		</node>
+		<node name="gotoPage" value="Go to page" toBeTranslated="true"/>
 		<node name="plugin">
 			<node name="installTitle" value="플러그인 설치"/>
 			<node name="updateTitle" value="플러그인 업데이트"/>
@@ -1051,15 +1079,17 @@
 			<node name="edit" value="편집"/>
 			<node name="remove" value="제거"/>
 		</node>
-		<node name="editTags">
+		<node name="editTags" value="Tags" toBeTranslated="true">
 			<node name="addTag" value="태그 추가"/>
-			<node name="removeDialog" value="태그 제거">
+			<node name="editTag" value="Edit tag" toBeTranslated="true"/>
+			<node name="removeTag" value="태그 제거">
 				<node name="message" value="목록에서 태그를 제거할까요?"/>
 			</node>
 		</node>
-		<node name="editAuthors">
+		<node name="editAuthors" value="Authors" toBeTranslated="true">
 			<node name="addAuthor" value="저자 추가"/>
-			<node name="removeDialog" value="저자 제거">
+			<node name="editAuthor" value="Edit author" toBeTranslated="true"/>
+			<node name="removeAuthor" value="저자 제거">
 				<node name="message" value="목록에서 저자를 제거할까요?"/>
 			</node>
 		</node>
@@ -1078,16 +1108,14 @@
 			</node>
 			<node name="permissionDenied" value="퍼미션 거부됨"/>
 		</node>
-		<node name="missingPlugin">
-			<node name="title" value="%s 파일에 사용할 플러그인이 설치되지 않았습니다. 지금 설치할까요?"/>
+		<node name="missingPlugin" value="Missing plugin" toBeTranslated="true">
+			<node name="message" value="%s 파일에 사용할 플러그인이 설치되지 않았습니다. 지금 설치할까요?"/>
 		</node>
-		<node name="licensing">
-			<node name="title" value="%s is not licensed" toBeTranslated="true"/>
-			<node name="message" value="Purchase on Google Play now?" toBeTranslated="true"/>
+		<node name="licensing" value="Not licensed" toBeTranslated="true">
+			<node name="message" value="%s is not licensed. Purchase on Google Play now?" toBeTranslated="true"/>
 		</node>
-		<node name="retryLicensing">
-			<node name="title" value="Cannot verify %s licence" toBeTranslated="true"/>
-			<node name="message" value="Try again?" toBeTranslated="true"/>
+		<node name="retryLicensing" value="Licence verification" toBeTranslated="true">
+			<node name="message" value="Cannot verify %s licence. Try again?" toBeTranslated="true"/>
 		</node>
 	</node>
 	<node name="errorMessage">
@@ -1182,9 +1210,9 @@
 		<node name="frontScreenButton" value="이 화면으로 전환"/>
 	</node>
 	<node name="hint">
-		<node name="positiveLength" value="예시: 20px, 10pt, 0.8em, 1ex, 120%%"/>
-		<node name="length" value="예시: -2px, 10pt, -0.8em, 1.1ex, -40%%"/>
-		<node name="percent" value="예시: 125%%"/>
+		<node name="positiveLength" value="예시: 20px, 10pt, 0.8em, 1ex, 120%"/>
+		<node name="length" value="예시: -2px, 10pt, -0.8em, 1.1ex, -40%"/>
+		<node name="percent" value="예시: 125%"/>
 	</node>
 	<node name="duration">
 		<node name="duration1" value="1 second" toBeTranslated="true"/>
@@ -1195,6 +1223,20 @@
 		<node name="duration40" value="40 seconds" toBeTranslated="true"/>
 		<node name="duration60" value="1 minute" toBeTranslated="true"/>
 		<node name="duration300" value="5 minutes" toBeTranslated="true"/>
+	</node>
+	<node name="textSearchPopup">
+		<node name="findPrevious" value="Previous occurence" toBeTranslated="true"/>
+		<node name="findNext" value="Next occurence" toBeTranslated="true"/>
+		<node name="close" value="Close" toBeTranslated="true"/>
+	</node>
+	<node name="selectionPopup">
+		<node name="copyToClipboard" value="클립보드로 복사"/>
+		<node name="share" value="Share text" toBeTranslated="true"/>
+		<node name="openInDictionary" value="사전으로 열기"/>
+		<node name="translate" value="Translate" toBeTranslated="true"/>
+		<!-- this is a verb: make a bookmark -->
+		<node name="bookmark" value="Bookmark" toBeTranslated="true"/>
+		<node name="close" value="Close" toBeTranslated="true"/>
 	</node>
 	<node name="dictanErrors">
 		<node name="unknown" value="Unknown error" toBeTranslated="true"/>

@@ -4,7 +4,7 @@
 <!-- Updated by Ingolf Kübler 2011/06/26 -->
 <!-- Updated by Ingolf Kübler 2011/07/03 -->
 <!-- Updated by Ingolf Kübler 2012/07/01 -->
-<!-- modified by Matthias Dill 2014-2015 -->
+<!-- modified by Matthias Dill 2014-2016 -->
 <resources>
 	<node name="library" value="FBReader Bibliothek">
 		<node name="unknownAuthor" value="Unbekannte Autoren"/>
@@ -62,6 +62,7 @@
 			<node name="summary" value="Dateisystem des Geräts"/>
 		</node>
 		<node name="fileTreeCard" value="Speicherkarte">
+			<node name="withIndex" value="Speicherkarte Nummer %s"/>
 			<node name="summary" value="Speicherkarte (bei einigen Geräten der interne Speicher)"/>
 		</node>
 		<node name="fileTreeLibrary" value="FBReader Bibliothek">
@@ -265,7 +266,7 @@
 	</node>
 	<node name="toast">
 		<node name="more" value="Mehr"/>
-		<node name="offline" value="Offline" toBeTranslated="true"/>
+		<node name="offline" value="Offline"/>
 	</node>
 	<node name="cancelMenu">
 		<node name="library" value="Bibliothek öffnen"/>
@@ -277,7 +278,7 @@
 		<node name="close" value="FBReader schließen"/>
 	</node>
 	<node name="style" value="Stil %s"/>
-	<node name="editStyle">
+	<node name="editStyle" value="Stil bearbeiten">
 		<node name="name" value="Stilname"/>
 		<node name="invisible" value="Unsichtbar">
 			<node name="summaryOn" value="Lesezeichen nicht hervorheben"/>
@@ -286,16 +287,17 @@
 		<node name="bgColor" value="Hintergrundfarbe"/>
 	</node>
 	<node name="selection" value="Auswahl">
-		<node name="copyToClipboard" value="In die Zwischenablage kopieren"/>
-		<node name="openInDictionary" value="Im Wörterbuch nachschlagen"/>
 		<node name="quoteFrom" value="Zitat aus '%s'"/>
 		<node name="textInBuffer" value="In die Zwischenablage kopiert:&#10;%s"/>
-		<node name="clearSelection" value="Auswahl aufheben"/>
 	</node>
 	<node name="sharing">
 		<node name="sharedFrom" value="Bereitgestellt von &lt;a href=&quot;https://fbreader.org/&quot;&gt;FBReader&lt;/a&gt;"/>
 	</node>
 	<node name="menu">
+		<node name="installPremium" value="Upgrade auf Premium"/>
+		<node name="openPremium" value="FBReader Premium öffnen"/>
+		<node name="premium" value="FBReader Premium"/>
+		<node name="whatsnew" value="Was ist neu"/>
 		<node name="openStartScreen" value="Startbildschirm"/>
 		<node name="preferences" value="Einstellungen"/>
 		<node name="bookInfo" value="Buchinformation"/>
@@ -303,7 +305,7 @@
 		<node name="toc" value="Inhaltsverzeichnis"/>
 		<node name="day" value="Tag Modus"/>
 		<node name="night" value="Nacht Modus"/>
-		<node name="dayNight" value="Day/Night" toBeTranslated="true"/>
+		<node name="dayNight" value="Tag/Nacht"/>
 		<node name="yotaSwitchToBackScreen" value="Auf den Rückseitenbildschirm umschalten"/>
 		<node name="yotaSwitchToFrontScreen" value="Auf den Frontseitenbildschirm umschalten"/>
 		<node name="networkLibrary" value="Netzwerk-Bibliothek"/>
@@ -327,9 +329,9 @@
 		<node name="screenOrientationLandscape" value="Querformat"/>
 		<node name="screenOrientationReversePortrait" value="Hochkant kopfüber"/>
 		<node name="screenOrientationReverseLandscape" value="Querformat kopfüber"/>
-		<node name="increaseFont" value="Schriftgröße erhöhen"/>
-		<node name="decreaseFont" value="Schriftgröße verringern"/>
-		<node name="changeFontSize" value="Zoom in/out" toBeTranslated="true"/>
+		<node name="increaseFont" value="Schriftgröße vergrößern"/>
+		<node name="decreaseFont" value="Schriftgröße verkleinern"/>
+		<node name="changeFontSize" value="Zoom vergrößern/verkleinern"/>
 		<node name="toggleFullscreen" value="Vollbildmodus umschalten"/>
 		<node name="bookmarks" value="Lesezeichen"/>
 		<node name="help" value="Hilfe"/>
@@ -345,7 +347,7 @@
 		<node name="tags" value="Schlagwörter (Tags)"/>
 		<node name="series" value="Serie"/>
 	</node>
-	<node name="Preferences">
+	<node name="Preferences" value="FBReader Einstellungen">
 		<node name="sync" value="Synchronisation">
 			<node name="summary" value="Bücher Netzwerk Einstellungen"/>
 			<node name="site" value="Mehr über die Synchronisation erfahren">
@@ -366,6 +368,7 @@
 			<node name="downloadCurrentBook" value="Aktuelles Buch vom Server laden"/>
 			<node name="positions" value="Synchronisiere Leseposition"/>
 			<node name="bookmarks" value="Synchronisiere Lesezeichen"/>
+			<node name="customShelves" value="Synchronisiere benutzerdefinierte Bücherregale"/>
 			<node name="metainfo" value="Synchronisiere Meta Informationen (Titel, Tags, usw.)"/>
 			<node name="changeCurrentBook" value="Aktuelles Buch wechseln">
 				<node name="summaryOn" value="Dieses Buch auf allen Geräten öffnen"/>
@@ -439,6 +442,10 @@
 			<node name="dontTurnScreenOffDuringCharging" value="Ausschalten des Bildschirms beim Laden verhindern">
 				<node name="summaryOn" value="Bildschirm nicht abschalten auch wenn das Geräte aufgeladen wird"/>
 				<node name="summaryOff" value="Bildschirm abschalten auch wenn das Geräte aufgeladen wird"/>
+			</node>
+			<node name="enableBookMenuSwipeGesture" value="Aktiviere Wischgesten für das Buchmenü">
+				<node name="summaryOn" value="Von der linken Kante wischen um das Buchmenü zu öffnen"/>
+				<node name="summaryOff" value="Verwende den Menübutton (“3 Linien Hamburger”) um das Buchmenü zu öffnen"/>
 			</node>
 		</node>
 		<node name="text" value="Textdarstellung">
@@ -714,9 +721,12 @@
 				<node name="summaryOn" value="Kapitelmarken in der Fußzeile anzeigen"/>
 				<node name="summaryOff" value="Keine Kapitelmarken in der Fußzeile anzeigen"/>
 			</node>
-			<node name="showProgress" value="Seitennummer anzeigen">
-				<node name="summaryOn" value="Seitennummer in der Fußleiste anzeigen"/>
-				<node name="summaryOff" value="Keine Seitennummer in der Fußzeile anzeigen"/>
+			<node name="tocMarksMaxNumber" value="Maximum number of TOC marks to display" toBeTranslated="true"/>
+			<node name="showProgress" value="Lesefortschritt">
+				<node name="dontDisplay" value="Nicht anzeigen"/>
+				<node name="asPages" value="Als Seitenummer"/>
+				<node name="asPercentage" value="Als Prozentsatz"/>
+				<node name="asPagesAndPercentage" value="Als Seitennummer und Prozentsatz"/>
 			</node>
 			<node name="showBattery" value="Akkustatus">
 				<node name="summaryOn" value="Akkustatus in der Fußleiste anzeigen"/>
@@ -777,11 +787,11 @@
 			<node name="summary" value="Wörterbucheinstellungen"/>
 			<node name="dictionary" value="Einzelne Wörter nachschlagen in"/>
 			<node name="translator" value="Komplette Passagen übersetzen mit"/>
-			<node name="translateOffline" value="Google Translate: use offline translator (if installed)" toBeTranslated="true">
-				<node name="always" value="Always" toBeTranslated="true"/>
-				<node name="onError" value="Automatically, if online translation fails" toBeTranslated="true"/>
-				<node name="ask" value="Ask if online translation fails" toBeTranslated="true"/>
-				<node name="never" value="Never" toBeTranslated="true"/>
+			<node name="translateOffline" value="Google Übersetzer: Verwende offline Übersetzer (wenn installiert)">
+				<node name="always" value="Immer"/>
+				<node name="onError" value="Automatisch, wenn online Übersetzung fehlschlägt"/>
+				<node name="ask" value="Fragen wenn online Übersetzung fehlschlägt"/>
+				<node name="never" value="Niemals"/>
 			</node>
 			<node name="translationToastDuration" value="Anzeigedauer des Übersetzungs-Popups"/>
 			<node name="errorToastDuration" value="Anzeigedauer des Fehler-Popups"/>
@@ -820,10 +830,25 @@
 				<node name="summaryOff" value="Bildfarbe nicht anpassen"/>
 			</node>
 		</node>
-		<node name="menu" value="Menu" toBeTranslated="true">
-			<node name="summary" value="Main menu items" toBeTranslated="true"/>
-			<node name="enabled" value="Aktiviert"/>
-			<node name="disabled" value="Deaktiviert"/>
+		<node name="menu" value="Menü">
+			<node name="summary" value="Konfiguriere Hauptmenü"/>
+			<node name="backgroundCover" value="Titelseite als Hintergrund verwenden">
+				<node name="summaryOn" value="Titelseite im Buchmenü anzeigen"/>
+				<node name="summaryOff" value="Keinen Hintergrund"/>
+			</node>
+			<node name="bookMenuStatusItem" value="Status">
+				<node name="summaryOn" value="Im Buchmenü anzeigen"/>
+				<node name="summaryOff" value="Verstecken"/>
+			</node>
+			<node name="items" value="Menüpunkte">
+				<node name="summary" value="Reihenfolge ändern"/>
+				<node name="bookMenuUpperSection" value="Buchmenü (oberer Bereich)"/>
+				<node name="bookMenuLowerSection" value="Buchmenü (unterer Bereich)"/>
+				<node name="toolbarOrMainMenu" value="Symbolleiste oder Hauptmenü"/>
+				<node name="mainMenu" value="Hauptmenü"/>
+				<node name="enabled" value="Aktiviert"/>
+				<node name="disabled" value="Deaktiviert"/>
+			</node>
 		</node>
 		<node name="cancelMenu" value="Zurück-Menü">
 			<node name="summary" value="Aktion beim Drücken der Zurück-Taste"/>
@@ -917,7 +942,10 @@
 			<node name="removeFromFavorites" value="Buch aus der Favoritenliste löschen"/>
 			<node name="markAsRead" value="Als gelesen markieren"/>
 			<node name="markAsUnread" value="Als ungelesen markieren"/>
+			<node name="plugin" value="Plugin"/>
+			<node name="premium" value="Premium"/>
 		</node>
+		<node name="gotoPage" value="Gehe zur Seite"/>
 		<node name="plugin">
 			<node name="installTitle" value="Plugin installieren"/>
 			<node name="updateTitle" value="Plugin aktualisieren"/>
@@ -1056,15 +1084,17 @@
 			<node name="edit" value="Bearbeiten"/>
 			<node name="remove" value="Entfernen"/>
 		</node>
-		<node name="editTags">
-			<node name="addTag" value="Schlagwort hinzufügen"/>
-			<node name="removeDialog" value="Schlagwort entfernen">
+		<node name="editTags" value="Schlagwörter">
+			<node name="addTag" value="Hinzufügen"/>
+			<node name="editTag" value="Bearbeiten"/>
+			<node name="removeTag" value="Entfernen">
 				<node name="message" value="Schlagwort “%s” aus der Liste entfernen?"/>
 			</node>
 		</node>
-		<node name="editAuthors">
-			<node name="addAuthor" value="Autor hinzufügen"/>
-			<node name="removeDialog" value="Autor entfernen">
+		<node name="editAuthors" value="Autoren">
+			<node name="addAuthor" value="Hinzufügen"/>
+			<node name="editAuthor" value="Bearbeiten"/>
+			<node name="removeAuthor" value="Entfernen">
 				<node name="message" value="Autor “%s” aus der Liste entfernen?"/>
 			</node>
 		</node>
@@ -1083,16 +1113,14 @@
 			</node>
 			<node name="permissionDenied" value="Zugriff verweigert"/>
 		</node>
-		<node name="missingPlugin">
-			<node name="title" value="Plugin für %s Dateien ist nicht installiert. Jetzt installieren?"/>
+		<node name="missingPlugin" value="Plugin fehlt">
+			<node name="message" value="Plugin für %s Dateien ist nicht installiert. Jetzt installieren?"/>
 		</node>
-		<node name="licensing">
-			<node name="title" value="%s ist nicht lizenziert"/>
-			<node name="message" value="Jetzt im Google Play Store kaufen?"/>
+		<node name="licensing" value="Nicht lizenziert">
+			<node name="message" value="%s ist nicht lizenziert. Jetzt im Google Play Store kaufen?"/>
 		</node>
-		<node name="retryLicensing">
-			<node name="title" value="Die Lizenz %s kann nicht überprüft werden"/>
-			<node name="message" value="Wieder versuchen"/>
+		<node name="retryLicensing" value="Lizenzüberprüfung">
+			<node name="message" value="Die Lizenz %s kann nicht überprüft werden. Wieder versuchen?"/>
 		</node>
 	</node>
 	<node name="errorMessage">
@@ -1187,9 +1215,9 @@
 		<node name="frontScreenButton" value="Auf diesen Bildschirm wechseln"/>
 	</node>
 	<node name="hint">
-		<node name="positiveLength" value="z.B.: 20px, 10pt, 0.8em, 1ex, 120%%"/>
-		<node name="length" value="z.B.: -2px, 10pt, -0.8em, 1.1ex, -40%%"/>
-		<node name="percent" value="z.B.: 125%%"/>
+		<node name="positiveLength" value="z.B.: 20px, 10pt, 0.8em, 1ex, 120%"/>
+		<node name="length" value="z.B.: -2px, 10pt, -0.8em, 1.1ex, -40%"/>
+		<node name="percent" value="z.B.: 125%"/>
 	</node>
 	<node name="duration">
 		<node name="duration1" value="1 Sekunde"/>
@@ -1201,6 +1229,20 @@
 		<node name="duration60" value="1 Minute"/>
 		<node name="duration300" value="5 Minuten"/>
 	</node>
+	<node name="textSearchPopup">
+		<node name="findPrevious" value="Vorher suchen"/>
+		<node name="findNext" value="Weitersuchen"/>
+		<node name="close" value="Schließen"/>
+	</node>
+	<node name="selectionPopup">
+		<node name="copyToClipboard" value="In die Zwischenablage kopieren"/>
+		<node name="share" value="Text teilen"/>
+		<node name="openInDictionary" value="Im Wörterbuch nachschlagen"/>
+		<node name="translate" value="Übersetzen"/>
+		<!-- this is a verb: make a bookmark -->
+		<node name="bookmark" value="Lesezeichen hinzufügen"/>
+		<node name="close" value="Schließen"/>
+	</node>
 	<node name="dictanErrors">
 		<node name="unknown" value="Unbekannter Fehler"/>
 		<node name="noArticle" value="Kein Artikel für “%s” gefunden"/>
@@ -1209,14 +1251,14 @@
 	</node>
 	<node name="premium" value="FBReader Premium Edition">
 		<node name="shortTitle" value="FBReader Premium"/>
-		<node name="conflict" value="Both FBReader and FBReader Premium appear to be installed. Which one would you like to run?" toBeTranslated="true"/>
+		<node name="conflict" value="FBReader und FBReader Premium ist installiert. Welchen möchten sie starten?"/>
 	</node>
 	<node name="widget">
 		<node name="simple">
-			<node name="selectIcon" value="Select widget icon" toBeTranslated="true"/>
-			<node name="selectAction" value="Select action" toBeTranslated="true"/>
-			<node name="book" value="Read book" toBeTranslated="true"/>
-			<node name="library" value="Open library" toBeTranslated="true"/>
+			<node name="selectIcon" value="Widget Icon auswählen"/>
+			<node name="selectAction" value="Auktion auswählen"/>
+			<node name="book" value="Buch lesen"/>
+			<node name="library" value="Bibliothek öffnen"/>
 		</node>
 	</node>
 </resources>

@@ -57,6 +57,7 @@
 			<node name="summary" value="Просмотр всех файлов на устройстве"/>
 		</node>
 		<node name="fileTreeCard" value="Карта памяти">
+			<node name="withIndex" value="Карта памяти №%s"/>
 			<node name="summary" value="Просмотр карты памяти"/>
 		</node>
 		<node name="fileTreeLibrary" value="Библиотека FBReader">
@@ -277,8 +278,8 @@
 		<node name="close" value="Закрыть FBReader"/>
 	</node>
 	<node name="style" value="Стиль №%s"/>
-	<node name="editStyle">
-		<node name="name" value="Название стиля"/>
+	<node name="editStyle" value="Настройка стиля">
+		<node name="name" value="Название"/>
 		<node name="invisible" value="Невидимый">
 			<node name="summaryOn" value="Не выделять закладки"/>
 			<node name="summaryOff" value="Выделять закладки цветом"/>
@@ -286,16 +287,17 @@
 		<node name="bgColor" value="Цвет фона"/>
 	</node>
 	<node name="selection" value="Пометка">
-		<node name="copyToClipboard" value="Скопировать в буфер"/>
-		<node name="openInDictionary" value="Посмотреть в словаре"/>
 		<node name="quoteFrom" value="Цитата из %s"/>
 		<node name="textInBuffer" value="Текст в буфере обмена:&#10;%s"/>
-		<node name="clearSelection" value="Убрать пометку"/>
 	</node>
 	<node name="sharing">
 		<node name="sharedFrom" value="Отправлено из &lt;a href=&quot;https://ru.fbreader.org/&quot;&gt;FBReader&lt;/a&gt;"/>
 	</node>
 	<node name="menu">
+		<node name="installPremium" value="Установить FBReader Premium"/>
+		<node name="openPremium" value="Открыть FBReader Premium"/>
+		<node name="premium" value="FBReader Premium"/>
+		<node name="whatsnew" value="Что нового"/>
 		<node name="openStartScreen" value="Стартовый экран"/>
 		<node name="preferences" value="Настройки"/>
 		<node name="bookInfo" value="О книге"/>
@@ -345,7 +347,7 @@
 		<node name="tags" value="Категории"/>
 		<node name="series" value="Серия"/>
 	</node>
-	<node name="Preferences">
+	<node name="Preferences" value="Настройки FBReader">
 		<node name="sync" value="Синхронизация">
 			<node name="summary" value="Настройки книжной сети"/>
 			<node name="site" value="Как работает синхронизация FBReader">
@@ -366,6 +368,7 @@
 			<node name="downloadCurrentBook" value="Автоматически скачивать с сервера текущую книгу"/>
 			<node name="positions" value="Синхронизировать позиции"/>
 			<node name="bookmarks" value="Синхронизировать закладки"/>
+			<node name="customShelves" value="Синхронизировать мои полки"/>
 			<node name="metainfo" value="Синхронизировать информацию о книге (название, категории, и т.п.)"/>
 			<node name="changeCurrentBook" value="Менять книгу">
 				<node name="summaryOn" value="Держать открытой одну и ту же книгу на всех устройствах"/>
@@ -439,6 +442,10 @@
 			<node name="dontTurnScreenOffDuringCharging" value="Не выключать экран, если батарея заряжается">
 				<node name="summaryOn" value="Никогда не выключать экран, если чтение происходит в режиме зарядки"/>
 				<node name="summaryOff" value="Выключать экран даже в режиме зарядки"/>
+			</node>
+			<node name="enableBookMenuSwipeGesture" value="Включить жест для левого меню">
+				<node name="summaryOn" value="Движение пальцем от левого края к центру экрана открывает меню книги"/>
+				<node name="summaryOff" value="Меню книги открывается только нажатием на кнопку в левом верхнем углу экрана"/>
 			</node>
 		</node>
 		<node name="text" value="Текст">
@@ -714,9 +721,12 @@
 				<node name="summaryOn" value="Рисовать пометку на подвале в начале главы"/>
 				<node name="summaryOff" value="Подвал без пометок"/>
 			</node>
-			<node name="showProgress" value="Показывать число страниц">
-				<node name="summaryOn" value="Показывать число страниц в подвале"/>
-				<node name="summaryOff" value="Не показывать число страниц в подвале"/>
+			<node name="tocMarksMaxNumber" value="Максимальное число меток"/>
+			<node name="showProgress" value="Показывать, сколько прочитано">
+				<node name="dontDisplay" value="Не показывать"/>
+				<node name="asPages" value="В виде номеров страниц"/>
+				<node name="asPercentage" value="В виде процентов"/>
+				<node name="asPagesAndPercentage" value="В виде номеров страниц и процентов"/>
 			</node>
 			<node name="showBattery" value="Показать заряд батареи">
 				<node name="summaryOn" value="Показывать заряд батареи в подвале"/>
@@ -821,9 +831,24 @@
 			</node>
 		</node>
 		<node name="menu" value="Меню">
-			<node name="summary" value="Пункты главного меню"/>
-			<node name="enabled" value="Включены"/>
-			<node name="disabled" value="Выключены"/>
+			<node name="summary" value="Настройки меню главного экрана"/>
+			<node name="backgroundCover" value="Использовать обложку в качестве фона">
+				<node name="summaryOn" value="Показывать обложку в меню книги"/>
+				<node name="summaryOff" value="Выключить фон в меню"/>
+			</node>
+			<node name="bookMenuStatusItem" value="Status item" toBeTranslated="true">
+				<node name="summaryOn" value="Show status item in the book menu" toBeTranslated="true"/>
+				<node name="summaryOff" value="Hide status item" toBeTranslated="true"/>
+			</node>
+			<node name="items" value="Пункты меню">
+				<node name="summary" value="Изменить порядок пунктов"/>
+				<node name="bookMenuUpperSection" value="Меню книги (верхняя часть)"/>
+				<node name="bookMenuLowerSection" value="Меню книги (нижняя часть)"/>
+				<node name="toolbarOrMainMenu" value="Тулбар или главное меню"/>
+				<node name="mainMenu" value="Главное меню"/>
+				<node name="enabled" value="Включены"/>
+				<node name="disabled" value="Выключены"/>
+			</node>
 		</node>
 		<node name="cancelMenu" value="Меню выхода из программы">
 			<node name="summary" value="Список действий при нажатии на кнопку 'Назад'"/>
@@ -917,7 +942,10 @@
 			<node name="removeFromFavorites" value="Убрать из избранного"/>
 			<node name="markAsRead" value="Пометить как прочтённое"/>
 			<node name="markAsUnread" value="Пометить как непрочтённое"/>
+			<node name="plugin" value="Модуль"/>
+			<node name="premium" value="Premium"/>
 		</node>
+		<node name="gotoPage" value="На страницу"/>
 		<node name="plugin">
 			<node name="installTitle" value="Установка дополнения"/>
 			<node name="updateTitle" value="Новая версия"/>
@@ -1060,15 +1088,17 @@
 			<node name="edit" value="Изменить"/>
 			<node name="remove" value="Удалить"/>
 		</node>
-		<node name="editTags">
+		<node name="editTags" value="Категории">
 			<node name="addTag" value="Добавить категорию"/>
-			<node name="removeDialog" value="Убрать категорию">
+			<node name="editTag" value="Изменить категорию"/>
+			<node name="removeTag" value="Убрать категорию">
 				<node name="message" value="Убрать «%s» из списка?"/>
 			</node>
 		</node>
-		<node name="editAuthors">
+		<node name="editAuthors" value="Авторы">
 			<node name="addAuthor" value="Добавить автора"/>
-			<node name="removeDialog" value="Убрать автора">
+			<node name="editAuthor" value="Изменить автора"/>
+			<node name="removeAuthor" value="Убрать автора">
 				<node name="message" value="Убрать %s из списка?"/>
 			</node>
 		</node>
@@ -1087,16 +1117,14 @@
 			</node>
 			<node name="permissionDenied" value="Нет доступа"/>
 		</node>
-		<node name="missingPlugin">
-			<node name="title" value="Модуль для чтения файлов %s не установлен. Установить прямо сейчас?"/>
+		<node name="missingPlugin" value="Отсутствует модуль">
+			<node name="message" value="Модуль для чтения файлов %s не установлен. Установить прямо сейчас?"/>
 		</node>
-		<node name="licensing">
-			<node name="title" value="%s не лицензирован"/>
-			<node name="message" value="Купить на Google Play?"/>
+		<node name="licensing" value="Нет лицензии">
+			<node name="message" value="%s не лицензирован. Купить на Google Play?"/>
 		</node>
-		<node name="retryLicensing">
-			<node name="title" value="Не удалось проверить лицензию %s"/>
-			<node name="message" value="Попробовать ещё раз?"/>
+		<node name="retryLicensing" value="Проверка лицензии">
+			<node name="message" value="Не удалось проверить лицензию %s. Попробовать ещё раз?"/>
 		</node>
 	</node>
 	<node name="errorMessage">
@@ -1191,9 +1219,9 @@
 		<node name="frontScreenButton" value="Читать здесь"/>
 	</node>
 	<node name="hint">
-		<node name="positiveLength" value="Например: 20px, 10pt, 0.8em, 1ex, 120%%"/>
-		<node name="length" value="Например: -2px, 10pt, -0.8em, 1.1ex, -40%%"/>
-		<node name="percent" value="Например: 125%%"/>
+		<node name="positiveLength" value="Например: 20px, 10pt, 0.8em, 1ex, 120%"/>
+		<node name="length" value="Например: -2px, 10pt, -0.8em, 1.1ex, -40%"/>
+		<node name="percent" value="Например: 125%"/>
 	</node>
 	<node name="duration">
 		<node name="duration1" value="1 секунду"/>
@@ -1204,6 +1232,19 @@
 		<node name="duration40" value="40 секунд"/>
 		<node name="duration60" value="1 минута"/>
 		<node name="duration300" value="5 минут"/>
+	</node>
+	<node name="textSearchPopup">
+		<node name="findPrevious" value="Найти раньше"/>
+		<node name="findNext" value="Найти дальше"/>
+		<node name="close" value="Закрыть"/>
+	</node>
+	<node name="selectionPopup">
+		<node name="copyToClipboard" value="Скопировать в буфер"/>
+		<node name="share" value="Поделиться"/>
+		<node name="openInDictionary" value="Посмотреть в словаре"/>
+		<node name="translate" value="Перевести"/>
+		<node name="bookmark" value="Оставить закладку"/>
+		<node name="close" value="Закрыть"/>
 	</node>
 	<node name="dictanErrors">
 		<node name="unknown" value="неизвестная ошибка"/>

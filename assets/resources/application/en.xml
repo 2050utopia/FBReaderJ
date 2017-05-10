@@ -57,6 +57,7 @@
 			<node name="summary" value="Entire file system"/>
 		</node>
 		<node name="fileTreeCard" value="Memory card">
+			<node name="withIndex" value="Memory card No %s"/>
 			<node name="summary" value="Files on memory card, external or built-in"/>
 		</node>
 		<node name="fileTreeLibrary" value="FBReader library">
@@ -272,7 +273,7 @@
 		<node name="close" value="Close FBReader"/>
 	</node>
 	<node name="style" value="Style %s"/>
-	<node name="editStyle">
+	<node name="editStyle" value="Edit style">
 		<node name="name" value="Style name"/>
 		<node name="invisible" value="Invisible">
 			<node name="summaryOn" value="Do not highlight bookmarks"/>
@@ -281,21 +282,22 @@
 		<node name="bgColor" value="Background colour"/>
 	</node>
 	<node name="selection" value="Selection">
-		<node name="copyToClipboard" value="Copy to clipboard"/>
-		<node name="openInDictionary" value="Open in dictionary"/>
 		<node name="quoteFrom" value="Quote from %s"/>
 		<node name="textInBuffer" value="Copied to clipboard:&#10;%s"/>
-		<node name="clearSelection" value="Clear"/>
 	</node>
 	<node name="sharing">
 		<node name="sharedFrom" value="Shared from &lt;a href=&quot;https://fbreader.org/&quot;&gt;FBReader&lt;/a&gt;"/>
 	</node>
 	<node name="menu">
+		<node name="installPremium" value="Upgrade to Premium"/>
+		<node name="openPremium" value="Open FBReader Premium"/>
+		<node name="premium" value="FBReader Premium dialog"/>
+		<node name="whatsnew" value="What's new"/>
 		<node name="openStartScreen" value="Start screen"/>
 		<node name="preferences" value="Settings"/>
 		<node name="bookInfo" value="Book info"/>
 		<node name="library" value="Library"/>
-		<node name="toc" value="TOC"/>
+		<node name="toc" value="Table of contents"/>
 		<node name="day" value="Day"/>
 		<node name="night" value="Night"/>
 		<node name="dayNight" value="Day/Night"/>
@@ -340,7 +342,7 @@
 		<node name="tags" value="Tag(s)"/>
 		<node name="series" value="Series"/>
 	</node>
-	<node name="Preferences">
+	<node name="Preferences" value="FBReader settings">
 		<node name="sync" value="Synchronisation">
 			<node name="summary" value="Book network settings"/>
 			<node name="site" value="Read more about synchronisation">
@@ -361,6 +363,7 @@
 			<node name="downloadCurrentBook" value="Download current book from server"/>
 			<node name="positions" value="Synchronise reading positions"/>
 			<node name="bookmarks" value="Synchronise bookmarks"/>
+			<node name="customShelves" value="Synchronise custom shelves"/>
 			<node name="metainfo" value="Synchronise metainfo (title, tags, etc.)"/>
 			<node name="changeCurrentBook" value="Change current book">
 				<node name="summaryOn" value="Open same book on all devices"/>
@@ -434,6 +437,10 @@
 			<node name="dontTurnScreenOffDuringCharging" value="Prevent screen from sleeping while charging">
 				<node name="summaryOn" value="Prevent screen from sleeping while device is in charging mode"/>
 				<node name="summaryOff" value="Allow screen to sleep while device is in charging mode"/>
+			</node>
+			<node name="enableBookMenuSwipeGesture" value="Enable swipe gesture for the book menu">
+				<node name="summaryOn" value="Swipe in from the left edge to open book menu"/>
+				<node name="summaryOff" value="Use three-line (“hamburger”) button to open book menu"/>
 			</node>
 		</node>
 		<node name="text" value="Text">
@@ -709,9 +716,12 @@
 				<node name="summaryOn" value="Show TOC marks in the footer bar"/>
 				<node name="summaryOff" value="Don't show TOC marks in the footer bar"/>
 			</node>
-			<node name="showProgress" value="Show page number">
-				<node name="summaryOn" value="Show page number in footer"/>
-				<node name="summaryOff" value="Don't show page number in footer"/>
+			<node name="tocMarksMaxNumber" value="Maximum number of TOC marks to display"/>
+			<node name="showProgress" value="Show reading progress">
+				<node name="dontDisplay" value="Do not show"/>
+				<node name="asPages" value="As page number"/>
+				<node name="asPercentage" value="As percentage"/>
+				<node name="asPagesAndPercentage" value="As page number and percentage"/>
 			</node>
 			<node name="showBattery" value="Show battery level">
 				<node name="summaryOn" value="Show battery level in footer"/>
@@ -816,9 +826,24 @@
 			</node>
 		</node>
 		<node name="menu" value="Menu">
-			<node name="summary" value="Main menu items"/>
-			<node name="enabled" value="Enabled"/>
-			<node name="disabled" value="Disabled"/>
+			<node name="summary" value="Configure main screen menu"/>
+			<node name="backgroundCover" value="Use book cover as background">
+				<node name="summaryOn" value="Show cover in the book menu"/>
+				<node name="summaryOff" value="Keep background clear"/>
+			</node>
+			<node name="bookMenuStatusItem" value="Status item">
+				<node name="summaryOn" value="Show status item in the book menu"/>
+				<node name="summaryOff" value="Hide status item"/>
+			</node>
+			<node name="items" value="Menu items">
+				<node name="summary" value="Change items order"/>
+				<node name="bookMenuUpperSection" value="Book menu (upper section)"/>
+				<node name="bookMenuLowerSection" value="Book menu (lower section)"/>
+				<node name="toolbarOrMainMenu" value="Toolbar or main menu"/>
+				<node name="mainMenu" value="Main menu"/>
+				<node name="enabled" value="Enabled"/>
+				<node name="disabled" value="Disabled"/>
+			</node>
 		</node>
 		<node name="cancelMenu" value="Cancel menu">
 			<node name="summary" value="Back button action list"/>
@@ -912,7 +937,10 @@
 			<node name="removeFromFavorites" value="Remove from favourites"/>
 			<node name="markAsRead" value="Mark as read"/>
 			<node name="markAsUnread" value="Mark as unread"/>
+			<node name="plugin" value="Plugin"/>
+			<node name="premium" value="Premium"/>
 		</node>
+		<node name="gotoPage" value="Go to page"/>
 		<node name="plugin">
 			<node name="installTitle" value="Install plugin"/>
 			<node name="updateTitle" value="Update plugin"/>
@@ -1051,15 +1079,17 @@
 			<node name="edit" value="Edit"/>
 			<node name="remove" value="Remove"/>
 		</node>
-		<node name="editTags">
+		<node name="editTags" value="Tags">
 			<node name="addTag" value="Add tag"/>
-			<node name="removeDialog" value="Remove tag">
+			<node name="editTag" value="Edit tag"/>
+			<node name="removeTag" value="Remove tag">
 				<node name="message" value="Remove tag “%s” from the list?"/>
 			</node>
 		</node>
-		<node name="editAuthors">
+		<node name="editAuthors" value="Authors">
 			<node name="addAuthor" value="Add author"/>
-			<node name="removeDialog" value="Remove author">
+			<node name="editAuthor" value="Edit author"/>
+			<node name="removeAuthor" value="Remove author">
 				<node name="message" value="Remove author “%s” from the list?"/>
 			</node>
 		</node>
@@ -1078,16 +1108,14 @@
 			</node>
 			<node name="permissionDenied" value="Permission denied"/>
 		</node>
-		<node name="missingPlugin">
-			<node name="title" value="Plugin for %s files is not installed. Install now?"/>
+		<node name="missingPlugin" value="Missing plugin">
+			<node name="message" value="Plugin for %s files is not installed. Install now?"/>
 		</node>
-		<node name="licensing">
-			<node name="title" value="%s is not licensed"/>
-			<node name="message" value="Purchase on Google Play now?"/>
+		<node name="licensing" value="Not licensed">
+			<node name="message" value="%s is not licensed. Purchase on Google Play now?"/>
 		</node>
-		<node name="retryLicensing">
-			<node name="title" value="Cannot verify %s licence"/>
-			<node name="message" value="Try again?"/>
+		<node name="retryLicensing" value="Licence verification">
+			<node name="message" value="Cannot verify %s licence. Try again?"/>
 		</node>
 	</node>
 	<node name="errorMessage">
@@ -1182,9 +1210,9 @@
 		<node name="frontScreenButton" value="Switch to this screen"/>
 	</node>
 	<node name="hint">
-		<node name="positiveLength" value="E.g.: 20px, 10pt, 0.8em, 1ex, 120%%"/>
-		<node name="length" value="E.g.: -2px, 10pt, -0.8em, 1.1ex, -40%%"/>
-		<node name="percent" value="E.g.: 125%%"/>
+		<node name="positiveLength" value="E.g.: 20px, 10pt, 0.8em, 1ex, 120%"/>
+		<node name="length" value="E.g.: -2px, 10pt, -0.8em, 1.1ex, -40%"/>
+		<node name="percent" value="E.g.: 125%"/>
 	</node>
 	<node name="duration">
 		<node name="duration1" value="1 second"/>
@@ -1195,6 +1223,20 @@
 		<node name="duration40" value="40 seconds"/>
 		<node name="duration60" value="1 minute"/>
 		<node name="duration300" value="5 minutes"/>
+	</node>
+	<node name="textSearchPopup">
+		<node name="findPrevious" value="Previous occurence"/>
+		<node name="findNext" value="Next occurence"/>
+		<node name="close" value="Close"/>
+	</node>
+	<node name="selectionPopup">
+		<node name="copyToClipboard" value="Copy to clipboard"/>
+		<node name="share" value="Share text"/>
+		<node name="openInDictionary" value="Open in dictionary"/>
+		<node name="translate" value="Translate"/>
+		<!-- this is a verb: make a bookmark -->
+		<node name="bookmark" value="Bookmark"/>
+		<node name="close" value="Close"/>
 	</node>
 	<node name="dictanErrors">
 		<node name="unknown" value="Unknown error"/>
